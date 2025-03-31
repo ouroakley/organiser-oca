@@ -1,6 +1,6 @@
 ---
 title: Easter Egg Hunt
-date: 2025-04-01
+date: 2025-03-31
 eventSummary: ""
 eventStart: 2025-04-18T10:30:00
 eventEnd: 2025-04-18T14:00:00
