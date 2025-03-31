@@ -1,8 +1,9 @@
 ---
 title: Easter Egg Hunt
+date: 2025-04-01
 eventSummary: ""
-eventStart: 2025-04-18T10:30:00.000Z
-eventEnd: 2025-04-18T14:00:00.000Z
+eventStart: 2025-04-18T10:30:00
+eventEnd: 2025-04-18T14:00:00
 venues:
   - the-barley-mow
 organisers:
