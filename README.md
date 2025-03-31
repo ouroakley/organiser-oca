@@ -1,11 +1,13 @@
-# Example Group
+# OCA Organiser
 
-This is an example group that demonstrates how to structure content for an Our Area community website like Our Oakley. It shows how to organize events, venues, and organisers with their associated information.
+This is the OCA organiser for the Our Oakley website.
+
+Below still example content
 
 ## Directory Structure
 
 ```
-example-group/
+example/
 ├── content/
 │   ├── events/              # Event content organized by date
 │   │   └── event-name       # A directory per event

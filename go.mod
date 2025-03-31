@@ -1,3 +1,3 @@
-module github.com/ouroakley/example-group
+module github.com/ouroakley/organiser-oca
 
 go 1.22.7
