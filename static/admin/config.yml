@@ -41,9 +41,8 @@ collections:
         hint: "Enter the title of the event."
       - label: "Event Summary"
         name: "eventSummary"
-        widget: "text"
+        widget: "string"
         required: false
-        pattern: [".{0,40}", "Summary must be a maximum of 40 characters"]
         hint: "Enter a short summary of the event. This will be displayed on the event listing page."
       - label: "Event Start"
         name: "eventStart"
