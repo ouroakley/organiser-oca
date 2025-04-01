@@ -63,6 +63,7 @@ collections:
         name: "organisers"
         widget: "list"
         required: false
+        default: ["oca"]
         hint: "Enter the organisers for this event. Comma seperated, with no spaces. Replace spaces with a dash."
       - label: "Content"
         name: "body"
