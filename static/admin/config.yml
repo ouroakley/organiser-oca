@@ -69,6 +69,10 @@ collections:
         name: "body"
         widget: "markdown"
         required: false
+      - label: "Date"
+        name: "date"
+        widget: "hidden"
+        default: "{{now}}"
 
   - name: "organisers-info"
     label: "Organiser Info"
@@ -90,6 +94,10 @@ collections:
         name: "body"
         widget: "markdown"
         required: false
+      - label: "Date"
+        name: "date"
+        widget: "hidden"
+        default: "{{now}}"
       - label: "Build Settings"
         name: "build"
         widget: "hidden"
@@ -118,6 +126,10 @@ collections:
         name: "body"
         widget: "markdown"
         required: false
+      - label: "Date"
+        name: "date"
+        widget: "hidden"
+        default: "{{now}}"
       - label: "Build Settings"
         name: "build"
         widget: "hidden"
