@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ouroakley/example-group
+  repo: ouroakley/organiser-oca
   branch: main
   site_domain: https://www.ouroakley.uk
   base_url: https://www.ouroakley.uk
