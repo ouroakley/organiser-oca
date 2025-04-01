@@ -5,5 +5,4 @@ venues:
   - oakley-infant-school
 organisers:
   - oca
-date: "{{now}}"
 ---

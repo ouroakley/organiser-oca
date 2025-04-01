@@ -5,5 +5,4 @@ venues:
   - newfound-recreation-ground
 organisers:
   - oca
-date: "{{now}}"
 ---

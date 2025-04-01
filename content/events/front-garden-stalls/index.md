@@ -5,5 +5,4 @@ venues:
   - across-oakley
 organisers:
   - oca
-date: "{{now}}"
 ---

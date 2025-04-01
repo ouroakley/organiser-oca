@@ -5,5 +5,4 @@ venues:
   - peter-houseman-recreation-ground
 organisers:
   - oca
-date: "{{now}}"
 ---
