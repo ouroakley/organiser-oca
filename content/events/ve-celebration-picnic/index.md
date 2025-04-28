@@ -1,11 +1,14 @@
 ---
 title: VE Celebration Picnic
 eventStart: 2025-05-05T14:00:00.000Z
+eventEnd: 2025-05-05T18:00:00.000Z
 venues:
   - peter-houseman-recreation-ground
 organisers:
   - oca
 ---
+![VE Celebration Picnic poster. Details advertising event in red and black text. Union flag in background.](ve-celebration-poster-2025.jpg "VE Celebration Picnic")
+
 Bring your own picnic
 
 Entertainment
