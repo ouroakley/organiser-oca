@@ -1,7 +1,7 @@
 ---
 title: VE Celebration Picnic
-eventStart: 2025-05-05T14:00:00.000Z
-eventEnd: 2025-05-05T18:00:00.000Z
+eventStart: 2025-05-05 14:00:00
+eventEnd: 2025-05-05 18:00:00
 venues:
   - peter-houseman-recreation-ground
 organisers:
