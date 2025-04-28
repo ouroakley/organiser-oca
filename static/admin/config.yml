@@ -46,13 +46,13 @@ collections:
         hint: "Enter a short summary of the event. This will be displayed on the event listing page."
       - label: "Event Start"
         name: "eventStart"
-        picker_utc: true
         widget: "datetime"
+        format: YYYY-MM-DDTHH:mm:ssZ[Z]
         hint: "Enter the start date and time of the event. Both time and date are required. Use 00:00 as the time for all day events."
       - label: "Event End"
         name: "eventEnd"
-        picker_utc: true
         widget: "datetime"
+        format: YYYY-MM-DDTHH:mm:ssZ[Z]
         required: false
         hint: "Enter the end date and time of the event. Both time and date are optional. Use 00:00 as the time for all day events."
       - label: "Venues"
