@@ -1,7 +1,8 @@
 ---
 title: Front Garden Stalls
-eventStart: 2025-06-21T12:00:00.000Z
-eventEnd: 2025-06-21T16:00:00.000Z
+eventDates:
+  - start: 2025-06-21T13:00:00+01:00
+    end: 2025-06-21T17:00:00+01:00
 venues:
   - across-oakley
 organisers:
