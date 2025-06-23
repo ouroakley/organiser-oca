@@ -7,4 +7,5 @@ venues:
   - newfound-recreation-ground
 organisers:
   - oca
+date: 2025-11-02
 ---

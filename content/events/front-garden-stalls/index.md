@@ -7,6 +7,7 @@ venues:
   - across-oakley
 organisers:
   - oca
+date: 2025-06-21
 ---
 Visit a wide range of stalls across Oakley.
 

@@ -7,4 +7,5 @@ venues:
   - tbc
 organisers:
   - oca
+date: 2025-03-01
 ---

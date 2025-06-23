@@ -8,6 +8,7 @@ venues:
   - the-barley-mow
 organisers:
   - oca
+date: 2025-04-18
 ---
 Map and answer sheet available to print from the [OCA website](https://ocaoakley.org.uk/community/oakley-community-association-18567/easter-egg-hunt/) 
 

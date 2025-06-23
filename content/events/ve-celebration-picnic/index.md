@@ -7,6 +7,7 @@ venues:
   - peter-houseman-recreation-ground
 organisers:
   - oca
+date: 2025-05-05
 ---
 ![VE Celebration Picnic poster. Details advertising event in red and black text. Union flag in background.](ve-celebration-poster-2025.jpg "VE Celebration Picnic")
 

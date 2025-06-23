@@ -8,6 +8,7 @@ venues:
   - oakley-infant-school
 organisers:
   - oca
+date: 2025-08-09
 ---
 Your numbered entrance programme will give you the chance to win a luxury hamper or £100 cash!
 
