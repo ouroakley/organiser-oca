@@ -9,6 +9,8 @@ venues:
   - peter-houseman-recreation-ground
 organisers:
   - oca
+aliases:
+  - /events/2025/05/ve-celebration-picnic/
 ---
 Bring your own picnic
 

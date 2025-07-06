@@ -8,4 +8,6 @@ venues:
 organisers:
   - oca
 date: 2025-11-02
+aliases:
+  - /events/2025/11/oakley-and-deane-fireworks/
 ---

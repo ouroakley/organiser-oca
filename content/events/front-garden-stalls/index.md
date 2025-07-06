@@ -8,6 +8,8 @@ venues:
 organisers:
   - oca
 date: 2025-06-21
+aliases:
+  - /events/2025/06/front-garden-stalls/
 ---
 Visit a wide range of stalls across Oakley.
 
