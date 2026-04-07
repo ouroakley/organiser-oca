@@ -1,6 +1,6 @@
 ---
 title: Oakley Village Show
-date: 2025-08-08
+date: 2026-08-08
 poster: oakley-village-show-2026.png
 eventDates:
   - start: 2026-08-08T13:30:00+01:00
