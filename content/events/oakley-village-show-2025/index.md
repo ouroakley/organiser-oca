@@ -13,4 +13,5 @@ organisers:
 aliases:
   - /events/2025/08/oakley-village-show/
 ---
+
 Your numbered entrance programme will give you the chance to win a luxury hamper or £100 cash!
