@@ -8,7 +8,7 @@ backend:
   squash_merges: true
 
 editor:
-  preview: false
+  preview: true
 
 publish_mode: simple
 
