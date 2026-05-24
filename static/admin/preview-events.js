@@ -101,11 +101,128 @@
     return String(raw == null ? '' : raw).trim();
   }
 
+  function normKeyVenue(s) {
+    return String(s == null ? '' : s)
+      .trim()
+      .toLowerCase();
+  }
+
   function venueHref(slug) {
     return '/venues/' + slug.replace(/\s+/g, '-').toLowerCase();
   }
 
+  /** Public site JSON (same slugs as event front matter). */
+  var VENUES_JSON_URL = 'https://www.ouroakley.uk/venues/index.json';
+  var ORGANISERS_JSON_URL = 'https://www.ouroakley.uk/organisers/index.json';
+
+  /**
+   * Keep in sync with main/hugo.yaml: `permalinks.events` and the organiser module mount
+   * target `content/events/oca/` (path segment under `events`).
+   */
+  var SITE_ORIGIN = 'https://www.ouroakley.uk';
+  var EVENTS_MOUNT_SLUG = 'oca';
+
+  function pad2(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  /** @returns {{y:number,m:number,d:number}|null} */
+  function parseYmdParts(dateVal) {
+    if (dateVal == null || dateVal === '') return null;
+    var s = String(dateVal);
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (m) {
+      return { y: parseInt(m[1], 10), m: parseInt(m[2], 10), d: parseInt(m[3], 10) };
+    }
+    var d = parseDate(dateVal);
+    if (!d) return null;
+    return { y: d.getFullYear(), m: d.getMonth() + 1, d: d.getDate() };
+  }
+
+  function leafSlugFromEntry(entry) {
+    if (!entry || typeof entry.get !== 'function') return '';
+    var slug = entry.get('slug');
+    if (slug == null || slug === '') return '';
+    var parts = String(slug).split('/').filter(Boolean);
+    return parts.length ? parts[parts.length - 1] : '';
+  }
+
+  function buildLiveEventUrl(entry) {
+    var ymd = parseYmdParts(entry.getIn(['data', 'date']));
+    var leaf = leafSlugFromEntry(entry);
+    if (!ymd || !leaf) return '';
+    var path =
+      '/events/' +
+      EVENTS_MOUNT_SLUG +
+      '/' +
+      ymd.y +
+      '/' +
+      pad2(ymd.m) +
+      '/' +
+      pad2(ymd.d) +
+      '/' +
+      leaf +
+      '/';
+    return SITE_ORIGIN + path;
+  }
+
   var EventPreview = createClass({
+    getInitialState: function () {
+      return { venueTitles: {}, organiserTitles: {}, lookupLoaded: false };
+    },
+
+    componentDidMount: function () {
+      this.loadSiteTitleLookups();
+    },
+
+    loadSiteTitleLookups: function () {
+      var self = this;
+      Promise.all([
+        fetch(VENUES_JSON_URL).then(function (r) {
+          if (!r.ok) throw new Error('venues JSON ' + r.status);
+          return r.json();
+        }),
+        fetch(ORGANISERS_JSON_URL).then(function (r) {
+          if (!r.ok) throw new Error('organisers JSON ' + r.status);
+          return r.json();
+        }),
+      ])
+        .then(function (pair) {
+          var venueTitles = {};
+          (pair[0] || []).forEach(function (row) {
+            if (!row || !row.title) return;
+            var slug =
+              row.slug != null && row.slug !== '' ? normKeyVenue(row.slug) : normKeyVenue(row.title);
+            if (slug) venueTitles[slug] = row.title;
+          });
+          var organiserTitles = {};
+          (pair[1] || []).forEach(function (row) {
+            if (!row || !row.title) return;
+            var key =
+              row.slug != null && row.slug !== ''
+                ? normKeyVenue(row.slug)
+                : normKeyVenue(row.baseName);
+            if (key) organiserTitles[key] = row.title;
+          });
+          self.setState({ venueTitles: venueTitles, organiserTitles: organiserTitles, lookupLoaded: true });
+        })
+        .catch(function () {
+          self.setState({ lookupLoaded: true });
+        });
+    },
+
+    venueDisplay: function (raw) {
+      var slug = normKeyVenue(venueSlugLabel(raw));
+      var map = this.state.venueTitles || {};
+      return (slug && map[slug]) || venueSlugLabel(raw);
+    },
+
+    organiserDisplay: function (raw) {
+      var slug = normKeyVenue(venueSlugLabel(raw));
+      var map = this.state.organiserTitles || {};
+      return (slug && map[slug]) || venueSlugLabel(raw);
+    },
+
     render: function () {
       var props = this.props;
       var entry = props.entry;
@@ -130,9 +247,52 @@
         });
       }
 
+      var liveUrl = buildLiveEventUrl(entry);
+
+      var permalinkBanner = h(
+        'div',
+        { className: 'oca-event-preview__permalink' },
+        liveUrl
+          ? h(
+              'div',
+              { className: 'oca-event-preview__permalink-inner' },
+              h(
+                'p',
+                { className: 'oca-event-preview__permalink-label' },
+                'Live URL mirrors main ',
+                h('code', { className: 'oca-event-preview__code' }, 'permalinks.events'),
+                ' (',
+                h('code', { className: 'oca-event-preview__code' }, '/:sections/:year/:month/:day/:slug/'),
+                '); here ',
+                h('code', { className: 'oca-event-preview__code' }, 'sections'),
+                ' is ',
+                h('code', { className: 'oca-event-preview__code' }, 'events/' + EVENTS_MOUNT_SLUG),
+                ', using the ',
+                h('code', { className: 'oca-event-preview__code' }, 'date'),
+                ' field and the entry folder slug.'
+              ),
+              h('a', {
+                href: liveUrl,
+                className: 'oca-event-preview__permalink-link',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+              }, liveUrl)
+            )
+          : h(
+              'p',
+              { className: 'oca-event-preview__permalink-muted' },
+              'Live URL preview needs the ',
+              h('code', { className: 'oca-event-preview__code' }, 'date'),
+              ' field and a saved entry path (folder slug) so ',
+              h('code', { className: 'oca-event-preview__code' }, '/events/' + EVENTS_MOUNT_SLUG + '/…'),
+              ' can be built.'
+            )
+      );
+
       return h(
         'div',
         { className: 'oca-event-preview' },
+        permalinkBanner,
         h('h1', { className: 'oca-event-preview__title' }, title),
         h(
           'div',
@@ -170,7 +330,11 @@
                         return h(
                           'li',
                           { key: i, className: 'oca-event-preview__li' },
-                          h('a', { href: venueHref(label), className: 'oca-event-preview__link' }, label)
+                          h(
+                            'a',
+                            { href: venueHref(label), className: 'oca-event-preview__link' },
+                            this.venueDisplay(v)
+                          )
                         );
                       })
                     )
@@ -185,8 +349,8 @@
                       'ul',
                       { className: 'oca-event-preview__list' },
                       organisers.map(function (o, i) {
-                        return h('li', { key: i, className: 'oca-event-preview__li' }, venueSlugLabel(o));
-                      })
+                        return h('li', { key: i, className: 'oca-event-preview__li' }, this.organiserDisplay(o));
+                      }, this)
                     )
                   )
                 : null
