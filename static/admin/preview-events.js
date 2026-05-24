@@ -336,7 +336,7 @@
                             this.venueDisplay(v)
                           )
                         );
-                      })
+                      }, this)
                     )
                   )
                 : null,
