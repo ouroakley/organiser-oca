@@ -1,0 +1,146 @@
+/* OCA Decap events preview — approximates main site Tachyons event single spacing */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  padding: 1rem 1.5rem 3rem;
+}
+
+.oca-event-preview {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oca-event-preview__title {
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 1rem 0 1.5rem;
+}
+
+.oca-event-preview__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.oca-event-preview__main {
+  width: 100%;
+  padding-right: 0;
+  margin-bottom: 1.5rem;
+}
+
+.oca-event-preview__aside {
+  width: 100%;
+  padding-left: 0;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 30em) {
+  .oca-event-preview__main {
+    width: 60%;
+    padding-right: 2rem;
+  }
+
+  .oca-event-preview__aside {
+    width: 40%;
+    padding-left: 2rem;
+  }
+
+  .oca-event-preview__poster--mobile {
+    display: none !important;
+  }
+
+  .oca-event-preview__poster--desktop {
+    display: block !important;
+  }
+}
+
+.oca-event-preview__card {
+  padding: 1.5rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.oca-event-preview__section {
+  margin-bottom: 1rem;
+}
+
+.oca-event-preview__section:last-child {
+  margin-bottom: 0;
+}
+
+.oca-event-preview__h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.oca-event-preview__icon {
+  margin-right: 0.5rem;
+}
+
+.oca-event-preview__list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 0.75rem;
+}
+
+.oca-event-preview__li {
+  margin-bottom: 0.5rem;
+}
+
+.oca-event-preview__muted {
+  color: #777;
+  font-style: italic;
+}
+
+.oca-event-preview__link {
+  color: #357edd;
+  text-decoration: none;
+}
+
+.oca-event-preview__link:hover {
+  color: #00449e;
+  text-decoration: underline;
+}
+
+.oca-event-preview__poster {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.oca-event-preview__poster--desktop {
+  display: none;
+}
+
+.oca-event-preview__poster--mobile {
+  display: block;
+}
+
+.oca-event-preview__poster-img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.oca-event-preview__body {
+  line-height: 1.6;
+}
+
+.oca-event-preview__body img {
+  max-width: 100%;
+  height: auto;
+}
