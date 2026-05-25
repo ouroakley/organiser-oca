@@ -7,7 +7,7 @@
   var h = window.h;
   var createClass = window.createClass;
   if (!CMS || !h || !createClass) {
-    console.warn('OCA event preview: Decap CMS globals (CMS, h, createClass) not found.');
+    console.warn('Event preview: Decap CMS globals (CMS, h, createClass) not found.');
     return;
   }
 
@@ -251,88 +251,88 @@
 
       var permalinkBanner = h(
         'div',
-        { className: 'oca-event-preview__permalink' },
+        { className: 'decap-event-preview__permalink' },
         liveUrl
           ? h(
               'div',
-              { className: 'oca-event-preview__permalink-inner' },
+              { className: 'decap-event-preview__permalink-inner' },
               h(
                 'p',
-                { className: 'oca-event-preview__permalink-label' },
+                { className: 'decap-event-preview__permalink-label' },
                 'Live URL mirrors main ',
-                h('code', { className: 'oca-event-preview__code' }, 'permalinks.events'),
+                h('code', { className: 'decap-event-preview__code' }, 'permalinks.events'),
                 ' (',
-                h('code', { className: 'oca-event-preview__code' }, '/:sections/:year/:month/:day/:slug/'),
+                h('code', { className: 'decap-event-preview__code' }, '/:sections/:year/:month/:day/:slug/'),
                 '); here ',
-                h('code', { className: 'oca-event-preview__code' }, 'sections'),
+                h('code', { className: 'decap-event-preview__code' }, 'sections'),
                 ' is ',
-                h('code', { className: 'oca-event-preview__code' }, 'events/' + EVENTS_MOUNT_SLUG),
+                h('code', { className: 'decap-event-preview__code' }, 'events/' + EVENTS_MOUNT_SLUG),
                 ', using the ',
-                h('code', { className: 'oca-event-preview__code' }, 'date'),
+                h('code', { className: 'decap-event-preview__code' }, 'date'),
                 ' field and the entry folder slug.'
               ),
               h('a', {
                 href: liveUrl,
-                className: 'oca-event-preview__permalink-link',
+                className: 'decap-event-preview__permalink-link',
                 target: '_blank',
                 rel: 'noopener noreferrer',
               }, liveUrl)
             )
           : h(
               'p',
-              { className: 'oca-event-preview__permalink-muted' },
+              { className: 'decap-event-preview__permalink-muted' },
               'Live URL preview needs the ',
-              h('code', { className: 'oca-event-preview__code' }, 'date'),
+              h('code', { className: 'decap-event-preview__code' }, 'date'),
               ' field and a saved entry path (folder slug) so ',
-              h('code', { className: 'oca-event-preview__code' }, '/events/' + EVENTS_MOUNT_SLUG + '/…'),
+              h('code', { className: 'decap-event-preview__code' }, '/events/' + EVENTS_MOUNT_SLUG + '/…'),
               ' can be built.'
             )
       );
 
       return h(
         'div',
-        { className: 'oca-event-preview' },
+        { className: 'decap-event-preview' },
         permalinkBanner,
-        h('h1', { className: 'oca-event-preview__title' }, title),
+        h('h1', { className: 'decap-event-preview__title' }, title),
         h(
           'div',
-          { className: 'oca-event-preview__grid' },
+          { className: 'decap-event-preview__grid' },
           h(
             'div',
-            { className: 'oca-event-preview__main' },
+            { className: 'decap-event-preview__main' },
             h(
               'div',
-              { className: 'oca-event-preview__card' },
+              { className: 'decap-event-preview__card' },
               h(
                 'div',
-                { className: 'oca-event-preview__section' },
-                h('h2', { className: 'oca-event-preview__h2' }, h('span', { className: 'oca-event-preview__icon' }, '📅'), 'When'),
+                { className: 'decap-event-preview__section' },
+                h('h2', { className: 'decap-event-preview__h2' }, h('span', { className: 'decap-event-preview__icon' }, '📅'), 'When'),
                 h(
                   'ul',
-                  { className: 'oca-event-preview__list' },
+                  { className: 'decap-event-preview__list' },
                   dateLines.length
                     ? dateLines.map(function (line, i) {
-                        return h('li', { key: i, className: 'oca-event-preview__li' }, line);
+                        return h('li', { key: i, className: 'decap-event-preview__li' }, line);
                       })
-                    : h('li', { className: 'oca-event-preview__muted' }, 'No event dates yet')
+                    : h('li', { className: 'decap-event-preview__muted' }, 'No event dates yet')
                 )
               ),
               venues.length
                 ? h(
                     'div',
-                    { className: 'oca-event-preview__section' },
-                    h('h2', { className: 'oca-event-preview__h2' }, h('span', { className: 'oca-event-preview__icon' }, '📍'), 'Where'),
+                    { className: 'decap-event-preview__section' },
+                    h('h2', { className: 'decap-event-preview__h2' }, h('span', { className: 'decap-event-preview__icon' }, '📍'), 'Where'),
                     h(
                       'ul',
-                      { className: 'oca-event-preview__list' },
+                      { className: 'decap-event-preview__list' },
                       venues.map(function (v, i) {
                         var label = venueSlugLabel(v);
                         return h(
                           'li',
-                          { key: i, className: 'oca-event-preview__li' },
+                          { key: i, className: 'decap-event-preview__li' },
                           h(
                             'a',
-                            { href: venueHref(label), className: 'oca-event-preview__link' },
+                            { href: venueHref(label), className: 'decap-event-preview__link' },
                             this.venueDisplay(v)
                           )
                         );
@@ -343,13 +343,13 @@
               organisers.length
                 ? h(
                     'div',
-                    { className: 'oca-event-preview__section' },
-                    h('h2', { className: 'oca-event-preview__h2' }, h('span', { className: 'oca-event-preview__icon' }, '👥'), 'Organised by'),
+                    { className: 'decap-event-preview__section' },
+                    h('h2', { className: 'decap-event-preview__h2' }, h('span', { className: 'decap-event-preview__icon' }, '👥'), 'Organised by'),
                     h(
                       'ul',
-                      { className: 'oca-event-preview__list' },
+                      { className: 'decap-event-preview__list' },
                       organisers.map(function (o, i) {
-                        return h('li', { key: i, className: 'oca-event-preview__li' }, this.organiserDisplay(o));
+                        return h('li', { key: i, className: 'decap-event-preview__li' }, this.organiserDisplay(o));
                       }, this)
                     )
                   )
@@ -358,27 +358,27 @@
             poster
               ? h(
                   'div',
-                  { className: 'oca-event-preview__poster oca-event-preview__poster--mobile' },
+                  { className: 'decap-event-preview__poster decap-event-preview__poster--mobile' },
                   h('img', {
                     src: poster,
                     alt: title ? 'Event poster for ' + title : 'Event poster',
-                    className: 'oca-event-preview__poster-img',
+                    className: 'decap-event-preview__poster-img',
                   })
                 )
               : null,
-            h('div', { className: 'oca-event-preview__body' }, widgetFor('body'))
+            h('div', { className: 'decap-event-preview__body' }, widgetFor('body'))
           ),
           h(
             'aside',
-            { className: 'oca-event-preview__aside' },
+            { className: 'decap-event-preview__aside' },
             poster
               ? h(
                   'div',
-                  { className: 'oca-event-preview__poster oca-event-preview__poster--desktop' },
+                  { className: 'decap-event-preview__poster decap-event-preview__poster--desktop' },
                   h('img', {
                     src: poster,
                     alt: title ? 'Event poster for ' + title : 'Event poster',
-                    className: 'oca-event-preview__poster-img',
+                    className: 'decap-event-preview__poster-img',
                   })
                 )
               : null
